@@ -1,0 +1,18 @@
+[{
+    "isbn_id": 1492079391,
+    "booktitle": "Data Science on AWS",
+    "author": "Chris Fregly, Antje Barth",
+    "pages": 400
+},
+{
+    "isbn_id": 9788126568772,
+    "booktitle": "Business Analytics",
+    "author": "Uday Kumar",
+    "pages": 700
+},
+{
+    "isbn_id": 180020891,
+    "booktitle": "Learn SageMaker",
+    "author": "Julien Simon ",
+    "pages": 490
+}]

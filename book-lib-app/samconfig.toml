@@ -1,0 +1,9 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "books-lib-app"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-1vczkj3abfc5w"
+s3_prefix = "books-lib-app"
+region = "us-east-1"
+capabilities = "CAPABILITY_IAM"

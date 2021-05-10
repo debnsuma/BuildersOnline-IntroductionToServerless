@@ -17,14 +17,14 @@ Resources:
     Type: AWS::Serverless::SimpleTable
     Properties:
       PrimaryKey:
-        Name: id
+        Name: isbn_id
         Type: Number
         
   # Creating the Lambda Function 
   AddBookFunction:
     Type: AWS::Serverless::Function 
     Properties:
-      CodeUri: books_lib_api/
+      CodeUri: books_lib_app/
       Handler: app.lambda_handler
       Events:
         AddBook:
@@ -40,8 +40,8 @@ Resources:
         Book:
           Type: Api
           Properties:
-            Path: /books/{id}
-            Method: any      
+            Path: /books
+            Method: delete       
       Policies:
-        - AmazonDynamoDBFullAccess:
+        - DynamoDBCrudPolicy:
             TableName: !Ref BooksTable 
