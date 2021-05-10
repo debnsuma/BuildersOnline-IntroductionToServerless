@@ -1,0 +1,47 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  books_lib_api
+Globals:
+  Function:
+    Runtime: python3.8
+    Timeout: 30
+    Environment:
+      Variables:
+        BOOKS_TABLE: !Ref BooksTable
+
+Resources:
+
+  # Creating the DynamoDB database for storing the Books details
+  BooksTable:
+    Type: AWS::Serverless::SimpleTable
+    Properties:
+      PrimaryKey:
+        Name: id
+        Type: Number
+        
+  # Creating the Lambda Function 
+  AddBookFunction:
+    Type: AWS::Serverless::Function 
+    Properties:
+      CodeUri: books_lib_api/
+      Handler: app.lambda_handler
+      Events:
+        AddBook:
+          Type: Api
+          Properties:
+            Path: /books
+            Method: post
+        ListBooks:
+          Type: Api
+          Properties:
+            Path: /books
+            Method: get
+        Book:
+          Type: Api
+          Properties:
+            Path: /books/{id}
+            Method: any      
+      Policies:
+        - AmazonDynamoDBFullAccess:
+            TableName: !Ref BooksTable 
