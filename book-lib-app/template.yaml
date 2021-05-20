@@ -1,7 +1,7 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: >
-  books_lib_api
+  books store lib application 
 Globals:
   Function:
     Runtime: python3.8
@@ -37,7 +37,7 @@ Resources:
           Properties:
             Path: /books
             Method: get
-        Book:
+        DeleteBook:
           Type: Api
           Properties:
             Path: /books
